@@ -1,0 +1,22 @@
+
+    <form  *ngIf="SignInForm" (ngSubmit)='onSubmit()' [formGroup]="SignInForm">
+      
+    
+      <div class="container" >
+          <div class="form-group">
+              <label for="contact">Email</label>
+              <input type="email" id="email"  placeholder="Email" class="form-control" [formControlName]="'email'" >
+              <span class='help-block' *ngIf="!SignInForm.get('email').valid && SignInForm.get('email').touched">Please Enter a valid email.</span>
+          </div>
+          <div class="form-group">
+              <label for="psw"><b>Password</b></label>
+              <input type="password" id="psw" placeholder="Password"   class="form-control" [formControlName]="'password'">
+              <span class='help-block' *ngIf="!SignInForm.get('password').valid && SignInForm.get('password').touched">Please Enter a valid password.</span>
+          </div>
+        <button type="submit" [disabled]="!SignInForm.valid "  class="btn btn-primary">Login</button>
+       
+      </div>
+    
+      
+    </form>
+  

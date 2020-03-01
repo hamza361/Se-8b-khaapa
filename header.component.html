@@ -1,0 +1,36 @@
+<nav class="navbar navbar-inverse navbar-fixed-top" style='background-color:grey;'> 
+
+  <div class="container">
+    
+    <div class="navbar-header">
+      
+      <a [routerLink]="['/']" style="color: black;font-weight: bold;" class="navbar-brand">Khaapa</a>
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded ="false">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>	
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="bs-nav-demo">
+
+      <ul class="nav navbar-nav">
+        <li *ngIf='auth' routerLinkActive="header_active"><a style="color: black;font-weight: bold;" [routerLink]="['/products']">Products</a></li>
+        <li *ngIf='auth' routerLinkActive="header_active"><a style="color: black;font-weight: bold;" [routerLink]="['/add_edit']">Add Product</a></li>
+        <li *ngIf='auth' routerLinkActive="header_active"><a style=" cursor: pointer;color: black;font-weight: bold;" (click)="reset_quantity()">Reset</a></li>
+        <li *ngIf='auth'  routerLinkActive="header_active"><a style=" cursor: pointer;color: black;font-weight: bold;" (click)="total_collection()">Today Collection</a></li>
+      </ul>
+
+      <ul class="nav navbar-nav navbar-right">
+        <li  *ngIf='!auth' routerLinkActive="header_active"><a style="cursor: pointer;color: black;font-weight: bold;" [routerLink]="['/login']">Login</a></li>
+        <li  *ngIf='auth' routerLinkActive="header_active"><a style="cursor: pointer;color: black;font-weight: bold;" (click)='logout()'>Logout</a></li>
+      </ul>
+      
+
+    </div>
+  
+
+  </div>
+
+</nav>
+
